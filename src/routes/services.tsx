@@ -106,6 +106,7 @@ function ServicesPage() {
               </ul>
               <Link
                 to="/contact"
+                search={{}}
                 className="mt-6 inline-flex items-center gap-2 self-start text-sm font-semibold uppercase tracking-widest text-primary hover:underline"
               >
                 Start this project <ArrowRight className="h-4 w-4" />

@@ -115,6 +115,7 @@ function ProcessPage() {
           </h2>
           <Link
             to="/contact"
+            search={{}}
             className="mt-5 inline-flex items-center justify-center gap-2 rounded-md bg-primary px-7 py-3 text-sm font-semibold uppercase tracking-widest text-primary-foreground transition-transform hover:scale-[1.03]"
           >
             Book your discovery call <ArrowRight className="h-4 w-4" />
