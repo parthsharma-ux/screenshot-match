@@ -98,6 +98,7 @@ function Index() {
           <div className="mt-10 flex flex-col gap-3 sm:flex-row animate-in fade-in slide-in-from-bottom-6 duration-700">
             <Link
               to="/contact"
+              search={{}}
               className="inline-flex items-center justify-center gap-2 rounded-md bg-primary px-7 py-3.5 text-sm font-semibold uppercase tracking-widest text-primary-foreground shadow-[0_10px_40px_-10px_var(--color-primary)] transition-transform hover:scale-[1.03]"
             >
               Build My Website <ArrowRight className="h-4 w-4" />
@@ -266,6 +267,7 @@ function Index() {
           </p>
           <Link
             to="/contact"
+            search={{}}
             className="mt-9 inline-flex items-center justify-center gap-2 rounded-md bg-primary px-8 py-3.5 text-sm font-semibold uppercase tracking-widest text-primary-foreground shadow-[0_10px_40px_-10px_var(--color-primary)] transition-transform hover:scale-[1.03]"
           >
             Build My Website <ArrowRight className="h-4 w-4" />

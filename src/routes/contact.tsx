@@ -9,9 +9,9 @@ import { BUSINESS_CATEGORIES, whatsappHref } from "@/lib/site";
 export const Route = createFileRoute("/contact")({
   validateSearch: (search: Record<string, unknown>) => ({
     business:
-      typeof search.business === "string" ? search.business : undefined,
+      typeof search["business"] === "string" ? search["business"] : undefined,
     package:
-      typeof search.package === "string" ? search.package : undefined,
+      typeof search["package"] === "string" ? search["package"] : undefined,
   }),
   head: () => ({
     meta: [
