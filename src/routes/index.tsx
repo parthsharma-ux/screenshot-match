@@ -6,7 +6,6 @@ import commerceShowcase from "@/assets/showcase-commerce.png";
 import realestateShowcase from "@/assets/showcase-realestate.png";
 import coachingShowcase from "@/assets/showcase-coaching.png";
 import aiShowcase from "@/assets/showcase-ai.png";
-import monogram from "@/assets/forge-monogram.png";
 import founderPhoto from "@/assets/founder-parth.jpg.asset.json";
 import cofounderPhoto from "@/assets/cofounder-sagar.jpg.asset.json";
 import { BRAND } from "@/lib/site";
