@@ -219,7 +219,7 @@ function WorkPage() {
             <div className="mt-8 space-y-3">
               <Link
                 to="/contact"
-                search={{ business: active.id, package: undefined }}
+                search={{ business: active.id }}
                 className="flex w-full items-center justify-center gap-2 rounded-md bg-primary px-5 py-3 text-sm font-semibold uppercase tracking-widest text-primary-foreground shadow-[0_10px_40px_-10px_var(--color-primary)] transition-transform hover:scale-[1.02]"
               >
                 Build This for My Business <ArrowRight className="h-4 w-4" />

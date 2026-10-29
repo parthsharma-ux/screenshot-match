@@ -129,7 +129,7 @@ function PricingPage() {
               </ul>
               <Link
                 to="/contact"
-                search={{ package: plan.name, business: undefined }}
+                search={{ package: plan.name }}
                 className={
                   "mt-8 flex items-center justify-center gap-2 rounded-md px-5 py-3 text-sm font-semibold uppercase tracking-widest transition-transform hover:scale-[1.02] " +
                   (plan.highlight

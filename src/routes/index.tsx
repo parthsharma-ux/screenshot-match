@@ -6,7 +6,8 @@ import commerceShowcase from "@/assets/showcase-commerce.png";
 import realestateShowcase from "@/assets/showcase-realestate.png";
 import coachingShowcase from "@/assets/showcase-coaching.png";
 import aiShowcase from "@/assets/showcase-ai.png";
-import monogram from "@/assets/forge-monogram.png";
+import founderPhoto from "@/assets/founder-parth.jpg.asset.json";
+import cofounderPhoto from "@/assets/cofounder-sagar.jpg.asset.json";
 import { BRAND } from "@/lib/site";
 
 const SHOWCASE = [
@@ -39,11 +40,15 @@ const FOUNDERS = [
     name: "Parth Sharma",
     role: "Founder",
     bio: "Leading the vision, digital strategy, creative direction, and development of premium digital experiences.",
+    photo: founderPhoto.url,
+    alt: "Parth Sharma, Founder of FORGE MEDIA",
   },
   {
-    name: "Sagar",
+    name: "Sagar Saha",
     role: "Co-Founder",
     bio: "Building the vision alongside the team and helping drive the agency's growth and client relationships.",
+    photo: cofounderPhoto.url,
+    alt: "Sagar Saha, Co-Founder of FORGE MEDIA",
   },
 ];
 
@@ -229,20 +234,13 @@ function Index() {
                 key={f.name}
                 className="overflow-hidden rounded-2xl border border-border bg-card"
               >
-                {/* Editable photo placeholder — replace with a real photograph */}
-                <div className="relative flex aspect-[4/3] items-center justify-center border-b border-dashed border-border bg-background">
+                <div className="relative aspect-[4/3] overflow-hidden border-b border-border">
                   <img
-                    src={monogram}
-                    alt=""
-                    aria-hidden
+                    src={f.photo}
+                    alt={f.alt}
                     loading="lazy"
-                    width={1024}
-                    height={1024}
-                    className="absolute h-40 w-40 object-contain opacity-10"
+                    className="h-full w-full object-cover object-top"
                   />
-                  <span className="text-xs font-medium uppercase tracking-[0.3em] text-muted-foreground">
-                    Photo placeholder
-                  </span>
                 </div>
                 <div className="p-7">
                   <p className="kicker">{f.role}</p>
