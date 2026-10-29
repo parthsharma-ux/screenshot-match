@@ -1,3 +1,4 @@
+// ============= Full file contents (start) =============
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
@@ -65,6 +66,22 @@
   --border: oklch(0.3 0.01 260 / 55%);
   --input: oklch(0.24 0.008 260);
   --ring: oklch(0.575 0.235 27.5 / 60%);
+
+  /* Premium material tokens */
+  --forge-glow: oklch(0.575 0.235 27.5 / 55%);
+  --forge-sheen: oklch(1 0 0 / 18%);
+  --shadow-forge:
+    0 10px 40px -12px var(--forge-glow),
+    inset 0 1px 0 var(--forge-sheen);
+  --shadow-forge-hover:
+    0 18px 55px -12px oklch(0.575 0.235 27.5 / 70%),
+    inset 0 1px 0 var(--forge-sheen);
+  --shadow-card:
+    inset 0 1px 0 oklch(1 0 0 / 6%),
+    0 24px 50px -32px oklch(0 0 0 / 90%);
+  --shadow-card-hover:
+    inset 0 1px 0 oklch(1 0 0 / 6%),
+    0 28px 60px -28px oklch(0.575 0.235 27.5 / 28%);
 }
 
 @layer base {
@@ -100,10 +117,11 @@
 @utility text-metallic {
   background-image: linear-gradient(
     178deg,
-    #fafafa 0%,
-    #d6d9de 28%,
-    #8d939d 52%,
-    #c9ccd2 74%,
+    #ffffff 0%,
+    #e3e6ea 22%,
+    #a7adb7 48%,
+    #d4d7dd 62%,
+    #8d939d 78%,
     #f2f3f5 100%
   );
   -webkit-background-clip: text;
@@ -138,5 +156,172 @@
     pointer-events: none;
     opacity: 0.5;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.04 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+}
+
+/* ————— Premium materials ————— */
+
+/* Primary CTA: molten-red gradient, ember glow, sheen sweep on hover */
+@utility btn-forge {
+  position: relative;
+  overflow: hidden;
+  background-image: linear-gradient(
+    180deg,
+    oklch(0.62 0.23 28) 0%,
+    oklch(0.52 0.22 26) 100%
+  );
+  color: var(--color-primary-foreground);
+  box-shadow: var(--shadow-forge);
+  transition:
+    transform 200ms ease,
+    box-shadow 200ms ease,
+    filter 200ms ease;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(
+      115deg,
+      transparent 32%,
+      var(--forge-sheen) 50%,
+      transparent 68%
+    );
+    transform: translateX(-130%);
+    transition: transform 650ms ease;
+  }
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-forge-hover);
+    filter: saturate(1.1);
+  }
+
+  &:hover::after {
+    transform: translateX(130%);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    transform: none;
+  }
+}
+
+/* Secondary CTA: quiet steel that warms toward red on hover */
+@utility btn-outline-forge {
+  border: 1px solid var(--color-border);
+  background-color: oklch(1 0 0 / 2%);
+  color: var(--color-foreground);
+  transition:
+    border-color 200ms ease,
+    background-color 200ms ease,
+    transform 200ms ease;
+
+  &:hover {
+    border-color: oklch(0.575 0.235 27.5 / 45%);
+    background-color: oklch(0.575 0.235 27.5 / 8%);
+    transform: translateY(-1px);
+  }
+}
+
+/* Card: layered glass-graphite with a top light catch and hover lift */
+@utility card-forge {
+  position: relative;
+  background-image: linear-gradient(
+    180deg,
+    oklch(0.2 0.007 260) 0%,
+    oklch(0.155 0.005 260) 100%
+  );
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-card);
+  transition:
+    border-color 300ms ease,
+    transform 300ms ease,
+    box-shadow 300ms ease;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(180deg, oklch(1 0 0 / 12%), transparent 45%);
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  &:hover {
+    border-color: oklch(0.575 0.235 27.5 / 35%);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-card-hover);
+  }
+}
+
+/* Hairline divider with an ember bloom in the middle */
+@utility hairline {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    oklch(0.575 0.235 27.5 / 45%) 50%,
+    transparent 100%
+  );
+}
+
+/* Featured panel: red ember ring for highlighted plan / callouts */
+@utility panel-ember {
+  border: 1px solid oklch(0.575 0.235 27.5 / 45%);
+  box-shadow:
+    0 0 70px -22px var(--forge-glow),
+    inset 0 1px 0 oklch(1 0 0 / 8%);
+}
+
+/* Focus treatment for form fields */
+@utility input-forge {
+  border: 1px solid var(--color-input);
+  background-color: oklch(0.15 0.005 260);
+  transition:
+    border-color 200ms ease,
+    box-shadow 200ms ease;
+
+  &:focus {
+    border-color: oklch(0.575 0.235 27.5 / 70%);
+    outline: none;
+    box-shadow: 0 0 0 3px oklch(0.575 0.235 27.5 / 22%);
+  }
+}
+
+/* ————— Marquee strip ————— */
+.marquee {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: forge-marquee 30s linear infinite;
+}
+
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes forge-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
   }
 }
