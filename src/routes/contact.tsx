@@ -113,7 +113,7 @@ function ContactPage() {
         </p>
 
         {status === "success" ? (
-          <div className="mt-12 rounded-2xl border border-primary/50 bg-card p-10 text-center">
+          <div className="panel-ember mt-12 rounded-2xl bg-card p-10 text-center">
             <CheckCircle2 className="mx-auto h-12 w-12 text-primary" aria-hidden />
             <h2 className="mt-4 font-display text-3xl tracking-wider text-metallic">
               ENQUIRY RECEIVED
