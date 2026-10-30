@@ -142,9 +142,9 @@ function WorkPage() {
               aria-selected={activeId === p.id}
               onClick={() => setActiveId(p.id)}
               className={
-                "rounded-full border px-5 py-2.5 text-sm font-semibold tracking-wide transition-colors " +
+                "rounded-full border px-5 py-2.5 text-sm font-semibold tracking-wide transition-all " +
                 (activeId === p.id
-                  ? "border-primary bg-primary text-primary-foreground"
+                  ? "border-primary bg-primary text-primary-foreground shadow-[0_0_28px_-6px_var(--color-primary)]"
                   : "border-border bg-card text-muted-foreground hover:border-primary/50 hover:text-foreground")
               }
             >
@@ -155,7 +155,7 @@ function WorkPage() {
 
         {/* Immersive preview */}
         <div className="mt-10 grid items-start gap-8 lg:grid-cols-[1.4fr_1fr]">
-          <div className="overflow-hidden rounded-2xl border border-border bg-card">
+          <div className="card-forge overflow-hidden rounded-2xl">
             <div className="relative">
               <img
                 key={active.id}
@@ -205,7 +205,7 @@ function WorkPage() {
             </div>
           </div>
 
-          <aside className="rounded-2xl border border-border bg-card p-7">
+          <aside className="card-forge rounded-2xl p-7">
             <p className="kicker">Included in this build</p>
             <ul className="mt-5 space-y-3.5">
               {active.features.map((f) => (
@@ -220,13 +220,13 @@ function WorkPage() {
               <Link
                 to="/contact"
                 search={{ business: active.id }}
-                className="flex w-full items-center justify-center gap-2 rounded-md bg-primary px-5 py-3 text-sm font-semibold uppercase tracking-widest text-primary-foreground shadow-[0_10px_40px_-10px_var(--color-primary)] transition-transform hover:scale-[1.02]"
+                className="btn-forge flex w-full items-center justify-center gap-2 rounded-md px-5 py-3 text-sm font-semibold uppercase tracking-widest"
               >
                 Build This for My Business <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
                 to="/pricing"
-                className="flex w-full items-center justify-center rounded-md border border-border px-5 py-3 text-sm font-semibold uppercase tracking-widest text-foreground transition-colors hover:bg-accent"
+                className="btn-outline-forge flex w-full items-center justify-center rounded-md px-5 py-3 text-sm font-semibold uppercase tracking-widest"
               >
                 See packages
               </Link>
