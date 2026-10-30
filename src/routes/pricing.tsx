@@ -100,14 +100,12 @@ function PricingPage() {
             <article
               key={plan.id}
               className={
-                "flex flex-col rounded-2xl border p-8 " +
-                (plan.highlight
-                  ? "border-primary bg-card shadow-[0_0_60px_-20px_var(--color-primary)]"
-                  : "border-border bg-card")
+                "card-forge flex flex-col rounded-2xl p-8 " +
+                (plan.highlight ? "panel-ember" : "")
               }
             >
               {plan.highlight && (
-                <span className="mb-4 self-start rounded-full bg-primary px-3 py-1 text-[11px] font-semibold uppercase tracking-widest text-primary-foreground">
+                <span className="mb-4 self-start rounded-full bg-primary px-3 py-1 text-[11px] font-semibold uppercase tracking-widest text-primary-foreground shadow-[0_0_20px_-4px_var(--color-primary)]">
                   Most popular
                 </span>
               )}
@@ -131,10 +129,10 @@ function PricingPage() {
                 to="/contact"
                 search={{ package: plan.name }}
                 className={
-                  "mt-8 flex items-center justify-center gap-2 rounded-md px-5 py-3 text-sm font-semibold uppercase tracking-widest transition-transform hover:scale-[1.02] " +
+                  "mt-8 flex items-center justify-center gap-2 rounded-md px-5 py-3 text-sm font-semibold uppercase tracking-widest " +
                   (plan.highlight
-                    ? "bg-primary text-primary-foreground"
-                    : "border border-border text-foreground hover:bg-accent")
+                    ? "btn-forge"
+                    : "btn-outline-forge")
                 }
               >
                 Build with {plan.name.toLowerCase()} <ArrowRight className="h-4 w-4" />

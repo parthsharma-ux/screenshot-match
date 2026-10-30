@@ -89,9 +89,11 @@ function Index() {
       {/* Hero */}
       <section className="forge-glow grain relative overflow-hidden">
         <div className="mx-auto flex max-w-7xl flex-col items-center px-4 py-24 text-center sm:px-6 md:py-36">
-          <p className="kicker animate-in fade-in slide-in-from-bottom-4 duration-700">
-            Premium Web Design Agency
-          </p>
+          <div className="flex animate-in items-center justify-center gap-4 fade-in slide-in-from-bottom-4 duration-700">
+            <span className="hairline hidden w-16 sm:block" aria-hidden />
+            <p className="kicker">Premium Web Design Agency</p>
+            <span className="hairline hidden w-16 sm:block" aria-hidden />
+          </div>
           <h1 className="mt-6 font-display text-[clamp(3rem,9vw,7.5rem)] leading-[0.95] tracking-wide animate-in fade-in slide-in-from-bottom-6 duration-700">
             <span className="block text-metallic">WE DON'T JUST BUILD WEBSITES.</span>
             <span className="block text-metallic">WE FORGE DIGITAL EXPERIENCES.</span>
@@ -104,19 +106,40 @@ function Index() {
             <Link
               to="/contact"
               search={{}}
-              className="inline-flex items-center justify-center gap-2 rounded-md bg-primary px-7 py-3.5 text-sm font-semibold uppercase tracking-widest text-primary-foreground shadow-[0_10px_40px_-10px_var(--color-primary)] transition-transform hover:scale-[1.03]"
+              className="btn-forge inline-flex items-center justify-center gap-2 rounded-md px-7 py-3.5 text-sm font-semibold uppercase tracking-widest"
             >
               Build My Website <ArrowRight className="h-4 w-4" />
             </Link>
             <Link
               to="/work"
-              className="inline-flex items-center justify-center gap-2 rounded-md border border-border bg-card/60 px-7 py-3.5 text-sm font-semibold uppercase tracking-widest text-foreground transition-colors hover:bg-accent"
+              className="btn-outline-forge inline-flex items-center justify-center gap-2 rounded-md px-7 py-3.5 text-sm font-semibold uppercase tracking-widest"
             >
               Explore Our Work
             </Link>
           </div>
         </div>
       </section>
+
+      {/* Industry marquee */}
+      <div className="marquee border-y border-border/40 bg-card/40 py-4" aria-hidden>
+        <div className="marquee-track">
+          {[0, 1].map((copy) => (
+            <div key={copy} className="flex shrink-0 items-center gap-10 pr-10">
+              {["GYM & FITNESS", "E-COMMERCE & FASHION", "REAL ESTATE", "COACHING & EDUCATION", "AI-POWERED BUSINESS", "CUSTOM BUILDS"].map(
+                (label) => (
+                  <span
+                    key={`${copy}-${label}`}
+                    className="flex items-center gap-10 whitespace-nowrap font-display text-lg tracking-[0.25em] text-muted-foreground/70"
+                  >
+                    {label}
+                    <span className="text-sm text-primary/70">✦</span>
+                  </span>
+                ),
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
 
       {/* Showroom teaser */}
       <section className="border-t border-border/40 py-20 md:py-28">
@@ -175,7 +198,7 @@ function Index() {
             {SERVICES.map((s) => (
               <div
                 key={s.title}
-                className="rounded-xl border border-border bg-card p-6 transition-colors hover:border-primary/50"
+                className="card-forge rounded-xl p-6"
               >
                 <s.icon className="h-6 w-6 text-primary" aria-hidden />
                 <h3 className="mt-4 text-2xl tracking-wider text-foreground">{s.title.toUpperCase()}</h3>
@@ -201,7 +224,7 @@ function Index() {
           <h2 className="mt-3 text-4xl text-metallic md:text-6xl">FROM VISION TO LIVE</h2>
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
             {PROCESS.map((p) => (
-              <div key={p.step} className="rounded-xl border border-border bg-card p-5">
+              <div key={p.step} className="card-forge rounded-xl p-5">
                 <div className="flex items-center justify-between">
                   <span className="font-display text-4xl text-primary/80">{p.step}</span>
                   <p.icon className="h-5 w-5 text-muted-foreground" aria-hidden />
@@ -232,7 +255,7 @@ function Index() {
             {FOUNDERS.map((f) => (
               <article
                 key={f.name}
-                className="overflow-hidden rounded-2xl border border-border bg-card"
+                className="card-forge overflow-hidden rounded-2xl"
               >
                 <div className="relative aspect-[4/3] overflow-hidden border-b border-border">
                   <img
@@ -256,6 +279,7 @@ function Index() {
       {/* Final brand message */}
       <section className="forge-glow grain border-t border-border/40 py-24 md:py-36">
         <div className="mx-auto max-w-5xl px-4 text-center sm:px-6">
+          <div className="hairline mx-auto mb-10 max-w-sm" aria-hidden />
           <h2 className="font-display text-[clamp(2.5rem,7vw,5.5rem)] leading-tight tracking-wide text-metallic">
             {BRAND.finalMessage}
           </h2>
@@ -266,7 +290,7 @@ function Index() {
           <Link
             to="/contact"
             search={{}}
-            className="mt-9 inline-flex items-center justify-center gap-2 rounded-md bg-primary px-8 py-3.5 text-sm font-semibold uppercase tracking-widest text-primary-foreground shadow-[0_10px_40px_-10px_var(--color-primary)] transition-transform hover:scale-[1.03]"
+            className="btn-forge mt-9 inline-flex items-center justify-center gap-2 rounded-md px-8 py-3.5 text-sm font-semibold uppercase tracking-widest"
           >
             Build My Website <ArrowRight className="h-4 w-4" />
           </Link>

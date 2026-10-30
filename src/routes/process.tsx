@@ -90,10 +90,10 @@ function ProcessPage() {
                   : "")
               }
             >
-              <div className="relative z-10 flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-primary/50 bg-card">
+              <div className="relative z-10 flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-primary/50 bg-card shadow-[0_0_24px_-6px_var(--color-primary)]">
                 <s.icon className="h-5 w-5 text-primary" aria-hidden />
               </div>
-              <div className="flex-1 rounded-2xl border border-border bg-card p-6">
+              <div className="card-forge flex-1 rounded-2xl p-6">
                 <div className="flex flex-wrap items-center justify-between gap-2">
                   <div className="flex items-baseline gap-3">
                     <span className="font-display text-3xl text-primary/70">{s.step}</span>
@@ -109,14 +109,14 @@ function ProcessPage() {
           ))}
         </ol>
 
-        <div className="rounded-2xl border border-primary/40 bg-card p-8 text-center">
+        <div className="panel-ember rounded-2xl bg-card p-8 text-center">
           <h2 className="font-display text-3xl tracking-wider text-metallic">
             READY TO START STEP 01?
           </h2>
           <Link
             to="/contact"
             search={{}}
-            className="mt-5 inline-flex items-center justify-center gap-2 rounded-md bg-primary px-7 py-3 text-sm font-semibold uppercase tracking-widest text-primary-foreground transition-transform hover:scale-[1.03]"
+            className="btn-forge mt-5 inline-flex items-center justify-center gap-2 rounded-md px-7 py-3 text-sm font-semibold uppercase tracking-widest"
           >
             Book your discovery call <ArrowRight className="h-4 w-4" />
           </Link>
