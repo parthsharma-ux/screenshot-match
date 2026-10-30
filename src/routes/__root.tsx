@@ -108,9 +108,9 @@ function SiteHeader() {
               key={link.to}
               to={link.to}
               className={
-                "text-sm font-medium tracking-wide transition-colors " +
+                "relative text-sm font-medium tracking-wide transition-colors " +
                 (pathname === link.to
-                  ? "text-foreground"
+                  ? "text-foreground after:absolute after:-bottom-1.5 after:left-1/2 after:h-1 after:w-1 after:-translate-x-1/2 after:rounded-full after:bg-primary after:shadow-[0_0_8px_var(--color-primary)]"
                   : "text-muted-foreground hover:text-foreground")
               }
             >
@@ -120,7 +120,7 @@ function SiteHeader() {
           <Link
             to="/contact"
             search={{}}
-            className="inline-flex items-center gap-2 rounded-md bg-primary px-4 py-2 text-sm font-semibold tracking-wide text-primary-foreground transition-colors hover:bg-primary/90"
+            className="btn-forge inline-flex items-center gap-2 rounded-md px-4 py-2 text-sm font-semibold tracking-wide"
           >
             Build My Website
           </Link>
@@ -155,7 +155,7 @@ function SiteHeader() {
             <Link
               to="/contact"
               search={{}}
-              className="mt-2 inline-flex items-center justify-center gap-2 rounded-md bg-primary px-4 py-2.5 text-sm font-semibold tracking-wide text-primary-foreground"
+              className="btn-forge mt-2 inline-flex items-center justify-center gap-2 rounded-md px-4 py-2.5 text-sm font-semibold tracking-wide"
             >
               Build My Website <ArrowRight className="h-4 w-4" />
             </Link>
@@ -228,7 +228,7 @@ function SiteFooter() {
               <p className="kicker">The Forge</p>
               <ul className="mt-4 space-y-2.5 text-sm text-muted-foreground">
                 <li>Parth Sharma — Founder</li>
-                <li>Sagar — Co-Founder</li>
+                <li>Sagar Saha — Co-Founder</li>
                 <li>India · Remote worldwide</li>
               </ul>
             </div>
