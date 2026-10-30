@@ -97,7 +97,7 @@ function ContactPage() {
   }
 
   const inputClass =
-    "w-full rounded-md border border-input bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/70 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary";
+    "input-forge w-full rounded-md px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/70";
   const labelClass = "mb-2 block text-xs font-semibold uppercase tracking-widest text-muted-foreground";
 
   return (
@@ -130,7 +130,7 @@ function ContactPage() {
             </Link>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="mt-12 space-y-6" noValidate={false}>
+          <form onSubmit={handleSubmit} className="card-forge mt-12 space-y-6 rounded-2xl p-7 sm:p-10" noValidate={false}>
             <div className="grid gap-6 sm:grid-cols-2">
               <div>
                 <label htmlFor="name" className={labelClass}>
@@ -250,7 +250,7 @@ function ContactPage() {
               <button
                 type="submit"
                 disabled={status === "submitting"}
-                className="inline-flex items-center justify-center gap-2 rounded-md bg-primary px-8 py-3.5 text-sm font-semibold uppercase tracking-widest text-primary-foreground shadow-[0_10px_40px_-10px_var(--color-primary)] transition-transform hover:scale-[1.02] disabled:cursor-not-allowed disabled:opacity-60"
+                className="btn-forge inline-flex items-center justify-center gap-2 rounded-md px-8 py-3.5 text-sm font-semibold uppercase tracking-widest disabled:cursor-not-allowed disabled:opacity-60"
               >
                 {status === "submitting" ? (
                   <>
@@ -267,7 +267,7 @@ function ContactPage() {
                   href={waLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 rounded-md border border-border px-8 py-3.5 text-sm font-semibold uppercase tracking-widest text-foreground transition-colors hover:bg-accent"
+                  className="btn-outline-forge inline-flex items-center justify-center gap-2 rounded-md px-8 py-3.5 text-sm font-semibold uppercase tracking-widest"
                 >
                   <MessageCircle className="h-4 w-4" /> Chat on WhatsApp
                 </a>

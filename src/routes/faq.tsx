@@ -102,7 +102,7 @@ function FaqPage() {
           <Link
             to="/contact"
             search={{}}
-            className="mt-5 inline-flex items-center justify-center gap-2 rounded-md bg-primary px-7 py-3 text-sm font-semibold uppercase tracking-widest text-primary-foreground transition-transform hover:scale-[1.03]"
+            className="btn-forge mt-5 inline-flex items-center justify-center gap-2 rounded-md px-7 py-3 text-sm font-semibold uppercase tracking-widest"
           >
             Ask us directly <ArrowRight className="h-4 w-4" />
           </Link>
