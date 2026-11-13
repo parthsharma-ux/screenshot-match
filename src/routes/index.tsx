@@ -1,11 +1,12 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Dumbbell, ShoppingBag, Building2, GraduationCap, Bot, Hammer, Sparkles, Compass, Flame, Rocket, LifeBuoy } from "lucide-react";
+import { ArrowRight, Dumbbell, ShoppingBag, Building2, GraduationCap, Bot, Coffee, Hammer, Sparkles, Compass, Flame, Rocket, LifeBuoy } from "lucide-react";
 
 import gymShowcase from "@/assets/showcase-gym.png";
 import commerceShowcase from "@/assets/showcase-commerce.png";
 import realestateShowcase from "@/assets/showcase-realestate.png";
 import coachingShowcase from "@/assets/showcase-coaching.png";
 import aiShowcase from "@/assets/showcase-ai.png";
+import restaurantShowcase from "@/assets/showcase-restaurant.png";
 import founderPhoto from "@/assets/founder-parth.jpg.asset.json";
 import cofounderPhoto from "@/assets/cofounder-sagar.jpg.asset.json";
 import { BRAND } from "@/lib/site";
@@ -16,6 +17,7 @@ const SHOWCASE = [
   { to: "/work", img: realestateShowcase, label: "Real Estate", alt: "Luxury real estate website demo" },
   { to: "/work", img: coachingShowcase, label: "Coaching & Education", alt: "Online coaching platform website demo" },
   { to: "/work", img: aiShowcase, label: "AI-Powered Business", alt: "AI-powered business website demo" },
+  { to: "/work", img: restaurantShowcase, label: "Restaurant & Café", alt: "Restaurant and café website demo" },
 ];
 
 const SERVICES = [
@@ -24,6 +26,7 @@ const SERVICES = [
   { icon: Building2, title: "Real Estate Websites", copy: "Listings and experiences that sell the lifestyle." },
   { icon: GraduationCap, title: "Coaching & Education Platforms", copy: "Course platforms that keep students progressing." },
   { icon: Bot, title: "AI-Powered Business Websites", copy: "Intelligent experiences: chat, automation, smart flows." },
+  { icon: Coffee, title: "Restaurant & Café Websites", copy: "Menus, reservations and ordering that fill every table." },
   { icon: Hammer, title: "Custom Builds & Care", copy: "Bespoke builds, performance tuning and ongoing support." },
 ];
 
@@ -96,7 +99,7 @@ function Index() {
           </div>
           <h1 className="mt-6 font-display text-[clamp(3rem,9vw,7.5rem)] leading-[0.95] tracking-wide animate-in fade-in slide-in-from-bottom-6 duration-700">
             <span className="block text-metallic">WE DON'T JUST BUILD WEBSITES.</span>
-            <span className="block text-metallic">WE FORGE DIGITAL EXPERIENCES.</span>
+            <span className="block text-metallic">WE <span className="text-ember">FORGE</span> DIGITAL <span className="font-accent text-ember">experiences.</span></span>
           </h1>
           <p className="mt-6 max-w-2xl text-base text-muted-foreground sm:text-lg animate-in fade-in slide-in-from-bottom-6 duration-700">
             Premium websites and intelligent digital solutions designed to help
@@ -125,7 +128,7 @@ function Index() {
         <div className="marquee-track">
           {[0, 1].map((copy) => (
             <div key={copy} className="flex shrink-0 items-center gap-10 pr-10">
-              {["GYM & FITNESS", "E-COMMERCE & FASHION", "REAL ESTATE", "COACHING & EDUCATION", "AI-POWERED BUSINESS", "CUSTOM BUILDS"].map(
+              {["GYM & FITNESS", "E-COMMERCE & FASHION", "REAL ESTATE", "COACHING & EDUCATION", "AI-POWERED BUSINESS", "RESTAURANTS & CAFÉS", "CUSTOM BUILDS"].map(
                 (label) => (
                   <span
                     key={`${copy}-${label}`}
@@ -158,13 +161,12 @@ function Index() {
           </div>
 
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {SHOWCASE.map((item, i) => (
+            {SHOWCASE.map((item) => (
               <Link
                 key={item.label}
                 to={item.to}
                 className={
-                  "group relative overflow-hidden rounded-xl border border-border bg-card transition-transform hover:scale-[1.02] " +
-                  (i === 0 ? "lg:col-span-2" : "")
+                  "group relative overflow-hidden rounded-xl border border-border bg-card transition-transform hover:scale-[1.02]"
                 }
               >
                 <img

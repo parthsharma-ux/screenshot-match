@@ -8,6 +8,7 @@ import commerceShowcase from "@/assets/showcase-commerce.png";
 import realestateShowcase from "@/assets/showcase-realestate.png";
 import coachingShowcase from "@/assets/showcase-coaching.png";
 import aiShowcase from "@/assets/showcase-ai.png";
+import restaurantShowcase from "@/assets/showcase-restaurant.png";
 import { BUSINESS_CATEGORIES } from "@/lib/site";
 
 const PROJECTS = [
@@ -79,6 +80,20 @@ const PROJECTS = [
       "Lead qualification flows",
       "Live dashboards and data visuals",
       "Integrations with your business tools",
+    ],
+  },
+  {
+    id: "restaurant",
+    img: restaurantShowcase,
+    title: "Restaurant & Café",
+    demo: "EMBER & OAK — Restaurant & Café",
+    blurb:
+      "A warm, appetite-first experience: mouth-watering food photography, digital menus, table reservations and online ordering that fill seats every night.",
+    features: [
+      "Digital menu with dishes, prices & photos",
+      "Online table reservations",
+      "Online ordering & delivery links",
+      "Google Maps, hours and reviews",
     ],
   },
 ];

@@ -18,6 +18,7 @@ export const BUSINESS_CATEGORIES = [
   { id: "realestate", label: "Real Estate" },
   { id: "coaching", label: "Coaching & Education" },
   { id: "ai", label: "AI-Powered Business" },
+  { id: "restaurant", label: "Restaurant & Café" },
 ] as const;
 
 export type BusinessCategoryId = (typeof BUSINESS_CATEGORIES)[number]["id"];
