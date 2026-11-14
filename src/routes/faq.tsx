@@ -18,7 +18,7 @@ const FAQS = [
   },
   {
     q: "How many revisions are included?",
-    a: "Starter includes 2 revision rounds, Business includes 4, and Premium is scoped with a revision plan. Design is approved before the build starts, so major surprises are rare.",
+    a: "Starter includes 2 revision rounds, Business includes 4, and Custom projects are scoped with a revision plan. Design is approved before the build starts, so major surprises are rare.",
   },
   {
     q: "Will my website be mobile-friendly and fast?",
@@ -26,7 +26,7 @@ const FAQS = [
   },
   {
     q: "Do you build online stores and booking systems?",
-    a: "Yes — e-commerce stores, class and appointment booking, memberships, course platforms and more are part of our Business and Premium builds.",
+    a: "Yes — e-commerce stores, class and appointment booking, memberships, course platforms and more are part of our Business and Custom builds.",
   },
   {
     q: "Can you add AI features to my website?",

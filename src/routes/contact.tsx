@@ -57,9 +57,17 @@ function ContactPage() {
   const [errorMessage, setErrorMessage] = useState("");
 
   const waLink = whatsappHref(
-    `Hi FORGE MEDIA! I'd like to enquire about a new website.${
-      businessType ? ` (Interest: ${businessType})` : ""
-    }`,
+    [
+      "Hi FORGE MEDIA, I'd like to enquire about a website.",
+      `Name: ${name}`,
+      `Email: ${email}`,
+      phone ? `Phone / WhatsApp: ${phone}` : "",
+      businessType ? `Business type: ${businessType}` : "",
+      packageInterest ? `Package interest: ${packageInterest}` : "",
+      `Project details: ${message}`,
+    ]
+      .filter(Boolean)
+      .join("\n"),
   );
 
   async function handleSubmit(e: FormEvent) {
@@ -116,18 +124,33 @@ function ContactPage() {
           <div className="panel-ember mt-12 rounded-2xl bg-card p-10 text-center">
             <CheckCircle2 className="mx-auto h-12 w-12 text-primary" aria-hidden />
             <h2 className="mt-4 font-display text-3xl tracking-wider text-metallic">
-              ENQUIRY RECEIVED
+              ENQUIRY SAVED
             </h2>
             <p className="mx-auto mt-3 max-w-md text-sm text-muted-foreground">
-              Thank you — your enquiry is in. We'll review it and get back to you
-              within one working day.
+              Your enquiry has been saved. Send it to FORGE MEDIA on WhatsApp to
+              make sure it reaches us there.
             </p>
-            <Link
-              to="/"
-              className="mt-7 inline-flex items-center gap-2 rounded-md border border-border px-6 py-2.5 text-sm font-semibold uppercase tracking-widest text-foreground transition-colors hover:bg-accent"
-            >
-              Back to home
-            </Link>
+            <div className="mt-7 flex flex-col justify-center gap-3 sm:flex-row">
+              {waLink && (
+                <a
+                  href={waLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-forge inline-flex items-center justify-center gap-2 rounded-md px-6 py-3 text-sm font-semibold uppercase tracking-widest"
+                >
+                  <MessageCircle className="h-4 w-4" /> Send on WhatsApp
+                </a>
+              )}
+              <Link
+                to="/"
+                className="inline-flex items-center justify-center gap-2 rounded-md border border-border px-6 py-3 text-sm font-semibold uppercase tracking-widest text-foreground transition-colors hover:bg-accent"
+              >
+                Back to home
+              </Link>
+            </div>
+            <p className="mt-4 text-xs text-muted-foreground">
+              WhatsApp opens with your enquiry filled in. Tap Send in WhatsApp to deliver it.
+            </p>
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="card-forge mt-12 space-y-6 rounded-2xl p-7 sm:p-10" noValidate={false}>
@@ -198,7 +221,7 @@ function ContactPage() {
                   <option value="">Not sure yet</option>
                   <option value="STARTER">Starter</option>
                   <option value="BUSINESS">Business</option>
-                  <option value="PREMIUM">Premium</option>
+                  <option value="CUSTOM">Custom</option>
                 </select>
               </div>
             </div>
@@ -262,16 +285,6 @@ function ContactPage() {
                   </>
                 )}
               </button>
-              {waLink && (
-                <a
-                  href={waLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-outline-forge inline-flex items-center justify-center gap-2 rounded-md px-8 py-3.5 text-sm font-semibold uppercase tracking-widest"
-                >
-                  <MessageCircle className="h-4 w-4" /> Chat on WhatsApp
-                </a>
-              )}
             </div>
           </form>
         )}

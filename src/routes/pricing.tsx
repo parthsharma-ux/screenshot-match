@@ -1,59 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Check } from "lucide-react";
-import { WHATSAPP_NUMBER } from "@/lib/site";
-
-const PLANS = [
-  {
-    id: "starter",
-    name: "STARTER",
-    price: "₹24,999",
-    priceNote: "from, one-time",
-    tagline: "A sharp, premium presence to launch or refresh your business.",
-    features: [
-      "Up to 5 pages, custom design",
-      "Mobile-first responsive build",
-      "Contact & enquiry forms",
-      "Basic SEO setup",
-      "2 revision rounds",
-      "Launch in 2–3 weeks",
-    ],
-    highlight: false,
-  },
-  {
-    id: "business",
-    name: "BUSINESS",
-    price: "₹59,999",
-    priceNote: "from, one-time",
-    tagline: "Our most popular package: a full conversion-focused website.",
-    features: [
-      "Up to 10 pages, premium art direction",
-      "Animations & interactive showroom-ready polish",
-      "Booking, menu or catalogue flows",
-      "WhatsApp & lead integrations",
-      "SEO, analytics & performance tuning",
-      "4 revision rounds",
-      "Launch in 3–6 weeks",
-    ],
-    highlight: true,
-  },
-  {
-    id: "premium",
-    name: "PREMIUM",
-    price: "Custom",
-    priceNote: "tailored quote",
-    tagline: "E-commerce, AI experiences and platforms built around your business.",
-    features: [
-      "Everything in Business",
-      "E-commerce / store functionality",
-      "AI assistant & automation flows",
-      "Member, student or CRM areas",
-      "Copywriting & art direction",
-      "Priority support & care plan",
-      "Timeline scoped to the build",
-    ],
-    highlight: false,
-  },
-];
+import { PRICING_PLANS } from "@/lib/pricing";
 
 export const Route = createFileRoute("/pricing")({
   head: () => ({
@@ -62,19 +9,19 @@ export const Route = createFileRoute("/pricing")({
       {
         name: "description",
         content:
-          "FORGE MEDIA packages: Starter, Business and Premium website builds for ambitious businesses. Transparent, conversion-focused website design.",
+          "FORGE MEDIA website packages: Starter at ₹12,999, Business at ₹24,999, and custom builds tailored to your business.",
       },
       { property: "og:title", content: "Pricing — FORGE MEDIA" },
       {
         property: "og:description",
         content:
-          "Starter, Business and Premium website packages — premium design built to perform.",
+          "Starter website at ₹12,999, Business website at ₹24,999, and tailored custom builds.",
       },
       { property: "og:url", content: "/pricing" },
       { name: "twitter:title", content: "Pricing — FORGE MEDIA" },
       {
         name: "twitter:description",
-        content: "Starter, Business and Premium website packages.",
+        content: "Starter ₹12,999, Business ₹24,999, and custom website packages.",
       },
     ],
     links: [{ rel: "canonical", href: "/pricing" }],
@@ -91,12 +38,12 @@ function PricingPage() {
           CHOOSE YOUR FORGE
         </h1>
         <p className="mt-4 max-w-2xl text-muted-foreground">
-          Three clear packages, one standard: premium. Every project starts with
-          a short discovery call and a tailored quote.
+          Three clear packages, one standard: premium. Fixed package pricing,
+          with custom builds scoped around your project.
         </p>
 
         <div className="mt-12 grid items-start gap-6 lg:grid-cols-3">
-          {PLANS.map((plan) => (
+          {PRICING_PLANS.map((plan) => (
             <article
               key={plan.id}
               className={
@@ -142,11 +89,8 @@ function PricingPage() {
         </div>
 
         <p className="mt-10 text-center text-xs text-muted-foreground">
-          Prices shown are indicative starting points in INR and are confirmed
-          with a tailored quote after discovery.
-          {WHATSAPP_NUMBER
-            ? " Prefer to chat first? Message us on WhatsApp from the contact page."
-            : ""}
+          Starter and Business prices are one-time package prices. Custom builds
+          are quoted for the project.
         </p>
       </div>
     </div>

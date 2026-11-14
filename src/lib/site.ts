@@ -24,11 +24,9 @@ export const BUSINESS_CATEGORIES = [
 export type BusinessCategoryId = (typeof BUSINESS_CATEGORIES)[number]["id"];
 
 /**
- * WhatsApp contact. Set to the agency's WhatsApp number in international
- * format, digits only (e.g. "919876543210"). While empty, WhatsApp buttons
- * are hidden across the site.
+ * WhatsApp contact in international format, digits only.
  */
-export const WHATSAPP_NUMBER = "";
+export const WHATSAPP_NUMBER = "919366117901";
 
 export function whatsappHref(message: string): string | null {
   if (!WHATSAPP_NUMBER) return null;
