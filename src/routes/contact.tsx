@@ -4,6 +4,7 @@ import { useState, type FormEvent } from "react";
 import { ArrowRight, MessageCircle, CheckCircle2, Loader2 } from "lucide-react";
 
 import { submitEnquiry } from "@/lib/enquiries.functions";
+import { enquiryErrorMessage } from "@/lib/enquiry-errors";
 import { BUSINESS_CATEGORIES, whatsappHref } from "@/lib/site";
 
 export const Route = createFileRoute("/contact")({
@@ -97,9 +98,7 @@ function ContactPage() {
         err && typeof err === "object" && "message" in err
           ? String((err as { message: unknown }).message)
           : "";
-      setErrorMessage(
-        detail || "Please check the form and try again.",
-      );
+      setErrorMessage(enquiryErrorMessage(detail));
       setStatus("error");
     }
   }
@@ -127,8 +126,8 @@ function ContactPage() {
               ENQUIRY SAVED
             </h2>
             <p className="mx-auto mt-3 max-w-md text-sm text-muted-foreground">
-              Your enquiry has been saved. Send it to FORGE MEDIA on WhatsApp to
-              make sure it reaches us there.
+              Your enquiry has been saved. Continue to WhatsApp, then tap Send
+              to deliver it to FORGE MEDIA.
             </p>
             <div className="mt-7 flex flex-col justify-center gap-3 sm:flex-row">
               {waLink && (
@@ -138,7 +137,7 @@ function ContactPage() {
                   rel="noopener noreferrer"
                   className="btn-forge inline-flex items-center justify-center gap-2 rounded-md px-6 py-3 text-sm font-semibold uppercase tracking-widest"
                 >
-                  <MessageCircle className="h-4 w-4" /> Send on WhatsApp
+                  <MessageCircle className="h-4 w-4" /> Continue to WhatsApp
                 </a>
               )}
               <Link
@@ -149,7 +148,7 @@ function ContactPage() {
               </Link>
             </div>
             <p className="mt-4 text-xs text-muted-foreground">
-              WhatsApp opens with your enquiry filled in. Tap Send in WhatsApp to deliver it.
+              WhatsApp opens with your enquiry filled in. Tap Send there to deliver it to 9366117901.
             </p>
           </div>
         ) : (
@@ -255,6 +254,7 @@ function ContactPage() {
                 name="message"
                 required
                 rows={5}
+                minLength={10}
                 maxLength={2000}
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}

@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 
 import { PRICING_PLANS } from "@/lib/pricing";
+import { enquiryErrorMessage } from "@/lib/enquiry-errors";
 import { WHATSAPP_NUMBER, whatsappHref } from "@/lib/site";
 
 describe("FORGE MEDIA package prices", () => {
@@ -27,5 +28,26 @@ describe("WhatsApp enquiry link", () => {
     const parsed = new URL(link ?? "");
     expect(parsed.pathname).toBe("/919366117901");
     expect(parsed.searchParams.get("text")).toBe(message);
+  });
+});
+
+describe("enquiry form validation feedback", () => {
+  it("shows the project-description requirement instead of raw validation data", () => {
+    const detail = JSON.stringify([
+      {
+        code: "too_small",
+        minimum: 10,
+        type: "string",
+        inclusive: true,
+        exact: false,
+        message:
+          "Please tell us a little about your project (at least 10 characters)",
+        path: ["message"],
+      },
+    ]);
+
+    expect(enquiryErrorMessage(detail)).toBe(
+      "Please tell us a little about your project (at least 10 characters)",
+    );
   });
 });
