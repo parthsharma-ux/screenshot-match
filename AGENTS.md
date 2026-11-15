@@ -8,3 +8,5 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Bundle founder portraits as local image imports so deployments outside Lovable can serve them without relying on Lovable asset URLs.

@@ -7,8 +7,8 @@ import realestateShowcase from "@/assets/showcase-realestate.png";
 import coachingShowcase from "@/assets/showcase-coaching.png";
 import aiShowcase from "@/assets/showcase-ai.png";
 import restaurantShowcase from "@/assets/showcase-restaurant.png";
-import founderPhoto from "@/assets/founder-parth.jpg.asset.json";
-import cofounderPhoto from "@/assets/cofounder-sagar.jpg.asset.json";
+import founderPhoto from "@/assets/founder-parth.jpg";
+import cofounderPhoto from "@/assets/cofounder-sagar.jpg";
 import { BRAND } from "@/lib/site";
 
 const SHOWCASE = [
@@ -43,14 +43,14 @@ const FOUNDERS = [
     name: "Parth Sharma",
     role: "Founder",
     bio: "Leading the vision, digital strategy, creative direction, and development of premium digital experiences.",
-    photo: founderPhoto.url,
+    photo: founderPhoto,
     alt: "Parth Sharma, Founder of FORGE MEDIA",
   },
   {
     name: "Sagar Saha",
     role: "Co-Founder",
     bio: "Building the vision alongside the team and helping drive the agency's growth and client relationships.",
-    photo: cofounderPhoto.url,
+    photo: cofounderPhoto,
     alt: "Sagar Saha, Co-Founder of FORGE MEDIA",
   },
 ];
